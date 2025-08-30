@@ -1,4 +1,7 @@
 # Measuring What Matters: A Benchmark Playbook for Multi-Agent AI
+[![CI](https://github.com/chimaobim1/zikoraai-eval-benchmarks/actions/workflows/ci.yml/badge.svg)](https://github.com/chimaobim1/zikoraai-eval-benchmarks/actions)
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+
 
 **By Chima Obi, AI Data Scientist at ZikoraAI**
 
