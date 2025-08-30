@@ -3,7 +3,8 @@
 [![CI](https://github.com/chimaobim1/zikoraai-eval-benchmarks/actions/workflows/ci.yml/badge.svg)](https://github.com/chimaobim1/zikoraai-eval-benchmarks/actions)
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
 
-Sample output: [EXAMPLE_summary.md](./reports/EXAMPLE_summary.md)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.5281/zenodo.xxxxxxx)
+
 
 📌 By Chima Obi, AI Data Scientist at ZikoraAI  
 
