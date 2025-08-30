@@ -148,7 +148,7 @@ def write_run_log(entries: List[Tuple[str, ModelResponse]]) -> None:
     with path.open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["prompt", "output", "latency_ms", "tokens_in", "tokens_out"])
-        for prompt, resp in entries:
+for prompt, resp in entries:
     w.writerow([
         prompt,
         resp.text,
