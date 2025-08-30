@@ -14,18 +14,17 @@ This repo is a minimal, reproducible benchmark harness for multi-agent AI themes
 
 It runs fully offline using a deterministic stub model so CI is green without API keys.
 
-## Quickstart
+## ✅ Reproduce in 60 seconds
+
 ```bash
-# Python 3.11+
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+pip install -e .            # installs zikoraai_eval for imports
 
-# Run all benchmarks (writes reports/)
+# run everything
 python -m zikoraai_eval.bench
 
-# Or:
-python scripts/run_bench.py
-
-# Run tests
+# run tests (same as CI)
 pytest -q
+
