@@ -11,6 +11,45 @@ With multi-agent platforms, the risks compound: multiple models pass tasks aroun
 
 At ZikoraAI, we built a lightweight benchmark playbook that anyone can adopt. It’s not about flashy dashboards. It’s about simple scripts, clear datasets, and reproducible results. That’s what makes trust in multi-agent AI possible.
 
+
+What We Measure
+
+Latency – average response time in ms
+
+Accuracy – unit tests on known inputs
+
+Hallucination risk – tracing claims to retrieval sources
+
+Fairness in African languages – Yoruba, Igbo, Hausa, Swahili
+
+Cost awareness – tokens in/out per task
+
+See the Evaluation Card
+ for full scope, metrics, and limitations.
+Sample output: EXAMPLE_summary.md
+
+# example drop-in model
+from dataclasses import dataclass
+from zikoraai_eval.models import BaseModel, ModelResponse
+import time
+
+@dataclass
+class MyAPIModel(BaseModel):
+    api_key: str
+
+    def generate(self, prompt: str) -> ModelResponse:
+        t0 = time.perf_counter()
+        # call your provider here...
+        text = "demo answer"
+        latency_ms = (time.perf_counter() - t0)*1000
+        return ModelResponse(
+            text=text,
+            tokens_in=len(prompt)//4,
+            tokens_out=len(text)//4,
+            latency_ms=latency_ms,
+        )
+
+
 ---
 
 ## ✅ Reproduce in 60 seconds
