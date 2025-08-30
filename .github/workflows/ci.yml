@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      PYTHONPATH: ${{ github.workspace }}   # <-- make repo root importable
+      PYTHONPATH: ${{ github.workspace }}   # make repo root importable
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
