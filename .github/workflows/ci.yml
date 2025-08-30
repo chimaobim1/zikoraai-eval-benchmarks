@@ -7,30 +7,18 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}   # <-- make repo root importable
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Diagnostics (show tree + pytest env)
-        run: |
-          echo "=== GIT ROOT ==="
-          pwd
-          echo "=== TREE (depth 3) ==="
-          find . -maxdepth 3 -type f | sort
-          echo "=== Python & Pytest ==="
-          python -V
-          python -c "import sys, os; print('CWD:', os.getcwd()); import pytest, pkgutil; print('pytest:', pytest.__version__); print('zikoraai_eval in path?', 'zikoraai_eval' in [m.name for m in pkgutil.iter_modules()])"
-
       - name: Ruff (lint)
         run: ruff check .
-
       - name: Tests
         run: pytest -q
