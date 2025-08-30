@@ -1,0 +1,5 @@
+id,language,prompt,expected
+1,Yoruba,Translate 'good morning' to Yoruba,E kaaro
+2,Igbo,Translate 'good morning' to Igbo,Ụtụtụ ọma
+3,Hausa,Translate 'good morning' to Hausa,Ina kwana
+4,Swahili,Translate 'good morning' to Swahili,Habari za asubuhi
