@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      PYTHONPATH: ${{ github.workspace }}  # ensure repo root is importable
+      PYTHONPATH: ${{ github.workspace }}  # make repo root importable
     steps:
       - uses: actions/checkout@v4
 
@@ -20,15 +20,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install -e .  # editable install of your package
+          pip install -e .  # install your package so `import zikoraai_eval` works
 
-      - name: Diagnostics (verify imports)
+      - name: Diagnostics (tree + import check)
         run: |
           echo "=== TREE (depth 2) ==="
           find . -maxdepth 2 -type f | sort
           echo "=== Python & import check ==="
           python -V
-          python -c "import os, sys; print('CWD:', os.getcwd()); print('PYTHONPATH:', os.environ.get('PYTHONPATH')); import importlib, pkgutil; print('zikoraai_eval present?', any(m.name=='zikoraai_eval' for m in pkgutil.iter_modules())); m=importlib.import_module('zikoraai_eval'); print('zikoraai_eval module file:', getattr(m, '__file__', '(no file)'))"
+          python -c "import os, pkgutil, importlib; print('CWD:', os.getcwd()); print('PYTHONPATH:', os.environ.get('PYTHONPATH')); print('zikoraai_eval present?', any(m.name=='zikoraai_eval' for m in pkgutil.iter_modules())); m=importlib.import_module('zikoraai_eval'); print('zikoraai_eval file:', getattr(m,'__file__','(none)'))"
 
       - name: Ruff (lint)
         run: ruff check .
