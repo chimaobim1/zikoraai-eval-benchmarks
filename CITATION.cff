@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: zikoraai-eval-benchmarks
+message: Please cite this repository if it helped your evaluation workflow.
+authors:
+  - family-names: Obi
+    given-names: Chima
+    affiliation: ZikoraAI
+version: "0.1.0"
+date-released: 2025-08-30
