@@ -149,7 +149,14 @@ def write_run_log(entries: List[Tuple[str, ModelResponse]]) -> None:
         w = csv.writer(f)
         w.writerow(["prompt", "output", "latency_ms", "tokens_in", "tokens_out"])
         for prompt, resp in entries:
-            w.writerow([prompt, resp.text, f"{resp.latency_ms:.3f}", resp.tokens_in, resp.tokens_out])
+    w.writerow([
+        prompt,
+        resp.text,
+        f"{resp.latency_ms:.3f}",
+        resp.tokens_in,
+        resp.tokens_out,
+    ])
+
 
 
 def estimate_cost(tokens_in: int, tokens_out: int) -> dict:
